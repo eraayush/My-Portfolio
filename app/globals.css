@@ -2,6 +2,8 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant blue (&:is(.blue *));
+@custom-variant purple (&:is(.purple *));
 
 :root {
   --background: #ffffff;
@@ -74,9 +76,80 @@
   --sidebar-ring: rgba(8, 145, 178, 0.5);
 }
 
+.blue {
+  --background: #f0f9ff;
+  --foreground: #0c4a6e;
+  --card: #e0f2fe;
+  --card-foreground: #0c4a6e;
+  --popover: #f0f9ff;
+  --popover-foreground: #0c4a6e;
+  --primary: #0284c7;
+  --primary-foreground: #ffffff;
+  --secondary: #0ea5e9;
+  --secondary-foreground: #ffffff;
+  --muted: #e0f2fe;
+  --muted-foreground: #075985;
+  --accent: #0ea5e9;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #bae6fd;
+  --input: #e0f2fe;
+  --ring: rgba(2, 132, 199, 0.5);
+  --chart-1: #0284c7;
+  --chart-2: #0ea5e9;
+  --chart-3: #38bdf8;
+  --chart-4: #7dd3fc;
+  --chart-5: #bae6fd;
+  --sidebar: #e0f2fe;
+  --sidebar-foreground: #0c4a6e;
+  --sidebar-primary: #0284c7;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #bae6fd;
+  --sidebar-accent-foreground: #0c4a6e;
+  --sidebar-border: #bae6fd;
+  --sidebar-ring: rgba(2, 132, 199, 0.5);
+}
+
+.purple {
+  --background: #faf5ff;
+  --foreground: #581c87;
+  --card: #f3e8ff;
+  --card-foreground: #581c87;
+  --popover: #faf5ff;
+  --popover-foreground: #581c87;
+  --primary: #7c3aed;
+  --primary-foreground: #ffffff;
+  --secondary: #a855f7;
+  --secondary-foreground: #ffffff;
+  --muted: #f3e8ff;
+  --muted-foreground: #7c2d92;
+  --accent: #a855f7;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #ddd6fe;
+  --input: #f3e8ff;
+  --ring: rgba(124, 58, 237, 0.5);
+  --chart-1: #7c3aed;
+  --chart-2: #a855f7;
+  --chart-3: #c084fc;
+  --chart-4: #ddd6fe;
+  --chart-5: #ede9fe;
+  --sidebar: #f3e8ff;
+  --sidebar-foreground: #581c87;
+  --sidebar-primary: #7c3aed;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ddd6fe;
+  --sidebar-accent-foreground: #581c87;
+  --sidebar-border: #ddd6fe;
+  --sidebar-ring: rgba(124, 58, 237, 0.5);
+}
+
 @theme inline {
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Updated font variable to use Inter instead of Geist_Mono */
+  --font-mono: var(--font-inter);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

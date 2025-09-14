@@ -1,40 +1,19 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { Badge } from "@/components/ui/badge"
-
-interface SkillsData {
-  languages: string[]
-  frameworks: string[]
-  styling: string[]
-  testing: string[]
-  tools: string[]
-  concepts: string[]
-  forms: string[]
-  routing: string[]
-}
+import { useAppDispatch, useAppSelector } from "@/lib/hooks/redux"
+import { fetchSkillsRequest } from "@/lib/store/slices/skillsSlice"
 
 export function SkillsSection() {
-  const [skillsData, setSkillsData] = useState<SkillsData | null>(null)
-  const [loading, setLoading] = useState(true)
+  const dispatch = useAppDispatch()
+  const { data: skillsData, loading, error } = useAppSelector((state) => state.skills)
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/portfolio/skills")
-        const result = await response.json()
-        if (result.success) {
-          setSkillsData(result.data)
-        }
-      } catch (error) {
-        console.error("Error fetching skills data:", error)
-      } finally {
-        setLoading(false)
-      }
+    if (!skillsData) {
+      dispatch(fetchSkillsRequest())
     }
-
-    fetchData()
-  }, [])
+  }, [dispatch, skillsData])
 
   if (loading) {
     return (
@@ -60,11 +39,11 @@ export function SkillsSection() {
     )
   }
 
-  if (!skillsData) {
+  if (error || !skillsData) {
     return (
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-muted-foreground">Failed to load skills data</p>
+          <p className="text-muted-foreground">Failed to load skills data: {error}</p>
         </div>
       </section>
     )

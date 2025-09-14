@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -44,22 +45,30 @@ export function Navigation() {
           <div className="font-bold text-xl text-primary">Portfolio</div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => scrollToSection(item.href)}
-                className="text-foreground hover:text-primary transition-colors duration-200"
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
+            <div className="hidden md:flex items-center space-x-8">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={e => {
+                    e.preventDefault();
+                    scrollToSection(item.href);
+                  }}
+                  className="cursor-pointer text-foreground hover:text-primary transition-colors duration-200"
+                >
+                  {item.label}
+                </a>
+              ))}
+              <ThemeToggle />
+            </div>
 
           {/* Mobile Navigation Button */}
-          <Button variant="ghost" size="sm" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
+            <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation Menu */}

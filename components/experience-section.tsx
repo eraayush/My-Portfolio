@@ -1,45 +1,20 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { CalendarDays, MapPin } from "lucide-react"
-
-interface Project {
-  name: string
-  description: string
-  achievements: string[]
-}
-
-interface Experience {
-  id: number
-  position: string
-  company: string
-  duration: string
-  location: string
-  projects: Project[]
-}
+import { useAppDispatch, useAppSelector } from "@/lib/hooks/redux"
+import { fetchExperienceRequest } from "@/lib/store/slices/experienceSlice"
 
 export function ExperienceSection() {
-  const [experience, setExperience] = useState<Experience[]>([])
-  const [loading, setLoading] = useState(true)
+  const dispatch = useAppDispatch()
+  const { data: experience, loading, error } = useAppSelector((state) => state.experience)
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/portfolio/experience")
-        const result = await response.json()
-        if (result.success) {
-          setExperience(result.data)
-        }
-      } catch (error) {
-        console.error("Error fetching experience data:", error)
-      } finally {
-        setLoading(false)
-      }
+    if (experience.length === 0) {
+      dispatch(fetchExperienceRequest())
     }
-
-    fetchData()
-  }, [])
+  }, [dispatch, experience.length])
 
   if (loading) {
     return (
@@ -53,6 +28,16 @@ export function ExperienceSection() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-muted-foreground">Failed to load experience: {error}</p>
         </div>
       </section>
     )

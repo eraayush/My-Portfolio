@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Fira_Mono, Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { ReduxProvider } from "@/components/redux-provider"
 
 const inter = Inter({
   variable: "--font-inter",
@@ -37,8 +38,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${firaMono.variable} font-sans antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          themes={["light", "dark", "blue", "purple"]}
+          disableTransitionOnChange
+        >
+          <ReduxProvider>{children}</ReduxProvider>
         </ThemeProvider>
       </body>
     </html>

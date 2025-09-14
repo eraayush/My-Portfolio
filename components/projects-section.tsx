@@ -6,41 +6,19 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github } from "lucide-react"
 import Image from "next/image"
-
-interface Project {
-  id: number
-  name: string
-  description: string
-  technologies: string[]
-  features: string[]
-  image: string
-  github: string
-  live: string
-  category: string
-}
+import { useAppDispatch, useAppSelector } from "@/lib/hooks/redux"
+import { fetchProjectsRequest } from "@/lib/store/slices/projectsSlice"
 
 export function ProjectsSection() {
-  const [projects, setProjects] = useState<Project[]>([])
-  const [loading, setLoading] = useState(true)
+  const dispatch = useAppDispatch()
+  const { data: projects, loading, error } = useAppSelector((state) => state.projects)
   const [filter, setFilter] = useState("All")
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/portfolio/projects")
-        const result = await response.json()
-        if (result.success) {
-          setProjects(result.data)
-        }
-      } catch (error) {
-        console.error("Error fetching projects data:", error)
-      } finally {
-        setLoading(false)
-      }
+    if (projects.length === 0) {
+      dispatch(fetchProjectsRequest())
     }
-
-    fetchData()
-  }, [])
+  }, [dispatch, projects.length])
 
   if (loading) {
     return (
@@ -54,6 +32,16 @@ export function ProjectsSection() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-muted-foreground">Failed to load projects: {error}</p>
         </div>
       </section>
     )

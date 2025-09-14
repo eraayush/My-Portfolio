@@ -1,41 +1,22 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 import { TypingAnimation } from "./typing-animation"
 import { AnimatedSection } from "./animated-section"
-
-interface PersonalData {
-  name: string
-  title: string
-  summary: string
-  email: string
-  linkedin: string
-  github: string
-}
+import { useAppDispatch, useAppSelector } from "@/lib/hooks/redux"
+import { fetchPersonalRequest } from "@/lib/store/slices/personalSlice"
 
 export function HeroSection() {
-  const [personalData, setPersonalData] = useState<PersonalData | null>(null)
-  const [loading, setLoading] = useState(true)
+  const dispatch = useAppDispatch()
+  const { data: personalData, loading, error } = useAppSelector((state) => state.personal)
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/portfolio/personal")
-        const result = await response.json()
-        if (result.success) {
-          setPersonalData(result.data)
-        }
-      } catch (error) {
-        console.error("Error fetching personal data:", error)
-      } finally {
-        setLoading(false)
-      }
+    if (!personalData) {
+      dispatch(fetchPersonalRequest())
     }
-
-    fetchData()
-  }, [])
+  }, [dispatch, personalData])
 
   if (loading) {
     return (
@@ -45,10 +26,10 @@ export function HeroSection() {
     )
   }
 
-  if (!personalData) {
+  if (error || !personalData) {
     return (
       <section className="min-h-screen flex items-center justify-center">
-        <p className="text-muted-foreground">Failed to load data</p>
+        <p className="text-muted-foreground">Failed to load data: {error}</p>
       </section>
     )
   }
