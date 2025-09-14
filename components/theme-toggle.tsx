@@ -50,7 +50,6 @@ export function ThemeToggle() {
             <DropdownMenuItem
               key={themeOption.name}
               onClick={() => {
-                console.log("[v0] Setting theme to:", themeOption.name)
                 setTheme(themeOption.name)
               }}
               className={theme === themeOption.name ? "bg-accent" : ""}
