@@ -1,0 +1,156 @@
+{
+  "personal": {
+    "name": "Front-End Developer",
+    "title": "Front-End Developer",
+    "experience": "3.7+ years",
+    "summary": "Front-End Developer with 3.7+ years of experience in the IT industry, focused on creating scalable and high-performance web applications. Skilled in modern front-end technologies, including React.js, Next.js, TypeScript, JavaScript, Tailwind CSS, HTML5, CSS3, jQuery, and CMS platforms such as Storyblok. I am eager to join a team where I can apply my technical knowledge and attention to detail to build accessible, maintainable, and user-focused web solutions.",
+    "email": "developer@example.com",
+    "phone": "+91 XXXXXXXXXX",
+    "location": "India",
+    "linkedin": "https://linkedin.com/in/developer",
+    "github": "https://github.com/developer"
+  },
+  "skills": {
+    "languages": ["JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3"],
+    "frameworks": ["React.js", "Next.js", "Redux", "Redux-toolkit", "Redux Thunk", "Redux Saga"],
+    "styling": ["Tailwind CSS", "Material UI", "Storyblok CMS"],
+    "testing": ["Jest", "Unit Testing", "Performance Testing", "Lighthouse"],
+    "tools": ["Webpack", "Git", "GitHub", "Babel", "NPM/Yarn"],
+    "concepts": ["RESTful APIs", "GraphQL", "Micro-Frontend", "OOP"],
+    "forms": ["React Hook Form", "Formik"],
+    "routing": ["React Router", "Next.js routing"]
+  },
+  "experience": [
+    {
+      "id": 1,
+      "position": "Software Engineer",
+      "company": "Akasa Air",
+      "duration": "Aug 2023 - Present",
+      "location": "India",
+      "projects": [
+        {
+          "name": "E-commerce Web Application (Flight Booking Platform)",
+          "description": "Built Akasa Air's international flight booking web application",
+          "achievements": [
+            "Contributed to a 30% increase in global booking traffic post-launch",
+            "Built the Dual Seat Booking (Extra Seat) feature, contributing to revenue increase",
+            "Delivered Travel Certificate functionality with Razorpay integration",
+            "Introduced first-of-its-kind Pet Booking (SSRs) feature",
+            "Led Storyblok CMS integration for centralized content management",
+            "Created Interactive Network Map for direct flight booking",
+            "Improved Google Lighthouse score from 70 to 90%",
+            "Replaced Material UI with optimized custom Tailwind components"
+          ]
+        },
+        {
+          "name": "FNS (Flight Notification System) Web Application",
+          "description": "Full-featured Flight Notification System for real-time flight updates",
+          "achievements": [
+            "Employed Redux-Saga for scalable state management",
+            "Crafted accessible custom UI components",
+            "Developed robust search, sorting, and pagination functionality",
+            "Handled full CRUD operations for backend data management",
+            "Leveraged Next.js dynamic routing for scalable screen logic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "position": "Web Developer",
+      "company": "uCertify",
+      "duration": "Feb 2022 - Jul 2023",
+      "location": "India",
+      "projects": [
+        {
+          "name": "Learning Management Platform",
+          "description": "Educational platform for interactive learning",
+          "achievements": [
+            "Contributed to UI development using React.js, Redux, Bootstrap, and Material UI",
+            "Developed interactive learning module enhancing student engagement",
+            "Applied new application theme improving overall platform aesthetics",
+            "Integrated SendGrid API for automated email communication",
+            "Rebuilt shopping cart and course selection components",
+            "Revamped student view interface for better user experience"
+          ]
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Flight Booking Platform",
+      "description": "International flight booking web application with advanced features",
+      "technologies": ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "Storyblok CMS"],
+      "features": ["Dual Seat Booking", "Pet Booking", "Travel Certificates", "Interactive Network Map"],
+      "image": "/placeholder.svg?height=300&width=500",
+      "github": "https://github.com/developer/flight-booking",
+      "live": "https://akasaair.com",
+      "category": "E-commerce"
+    },
+    {
+      "id": 2,
+      "name": "Flight Notification System",
+      "description": "Real-time flight notification system for customer updates",
+      "technologies": ["Next.js", "Redux-Saga", "TypeScript", "Tailwind CSS"],
+      "features": ["Real-time Updates", "Search & Filter", "CRUD Operations", "Dynamic Routing"],
+      "image": "/placeholder.svg?height=300&width=500",
+      "github": "https://github.com/developer/fns-system",
+      "live": "https://fns.akasaair.com",
+      "category": "Dashboard"
+    },
+    {
+      "id": 3,
+      "name": "Learning Management System",
+      "description": "Interactive educational platform for online learning",
+      "technologies": ["React.js", "Redux", "Material UI", "Bootstrap", "SendGrid API"],
+      "features": ["Interactive Modules", "Shopping Cart", "Email Integration", "Student Dashboard"],
+      "image": "/placeholder.svg?height=300&width=500",
+      "github": "https://github.com/developer/lms-platform",
+      "live": "https://ucertify.com",
+      "category": "Education"
+    },
+    {
+      "id": 4,
+      "name": "E-commerce Dashboard",
+      "description": "Modern admin dashboard for e-commerce management",
+      "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js"],
+      "features": ["Analytics", "Product Management", "Order Tracking", "User Management"],
+      "image": "/placeholder.svg?height=300&width=500",
+      "github": "https://github.com/developer/ecommerce-dashboard",
+      "live": "https://dashboard-demo.com",
+      "category": "Dashboard"
+    },
+    {
+      "id": 5,
+      "name": "Task Management App",
+      "description": "Collaborative task management application with real-time updates",
+      "technologies": ["React.js", "Node.js", "Socket.io", "MongoDB", "Tailwind CSS"],
+      "features": ["Real-time Collaboration", "Task Assignment", "Progress Tracking", "Team Chat"],
+      "image": "/placeholder.svg?height=300&width=500",
+      "github": "https://github.com/developer/task-manager",
+      "live": "https://taskmanager-demo.com",
+      "category": "Productivity"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Technology",
+      "field": "Electronics and Communication Engineering",
+      "institution": "College of Engineering, TMU",
+      "location": "Moradabad, UP",
+      "duration": "Aug 2018 - Jun 2022"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Proficient"
+    },
+    {
+      "language": "Hindi",
+      "proficiency": "Conversational"
+    }
+  ]
+}
