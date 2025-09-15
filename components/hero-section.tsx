@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Download, Eye, FileText, Github, Linkedin, Mail } from "lucide-react"
 import { TypingAnimation } from "./typing-animation"
@@ -12,6 +12,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 export function HeroSection() {
   const dispatch = useAppDispatch()
   const { data: personalData, loading, error } = useAppSelector((state) => state.personal)
+
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     if (!personalData) {
@@ -106,8 +108,11 @@ export function HeroSection() {
                   LinkedIn
                 </a>
               </Button>
-              <DropdownMenu >
-                <DropdownMenuTrigger>
+              <DropdownMenu open={open} onOpenChange={setOpen}>
+                <DropdownMenuTrigger
+                  onMouseEnter={() => setOpen(true)}
+                  onMouseLeave={() => setOpen(false)}
+                >
                   <Button
                     variant="outline"
                     size="lg"
@@ -117,7 +122,10 @@ export function HeroSection() {
                     Resume
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start">
+                <DropdownMenuContent align="start"
+                  onMouseEnter={() => setOpen(true)}
+                  onMouseLeave={() => setOpen(false)}
+                >
                   <DropdownMenuItem >
                     <a
                       href="https://drive.google.com/uc?export=download&id=1MYczHdFyNorH8ecb7P1RNJkAcVxrQr3a"

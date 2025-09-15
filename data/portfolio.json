@@ -128,7 +128,7 @@
       "description": "Collaborative task management application with real-time updates",
       "technologies": ["React.js", "Node.js", "Socket.io", "MongoDB", "Tailwind CSS"],
       "features": ["Real-time Collaboration", "Task Assignment", "Progress Tracking", "Team Chat"],
-      "image": "/placeholder.svg?height=300&width=500",
+      "image": "../projectImages/taskManagement.png",
       "github": "https://github.com/eraayush/TMUCollegeMERNApp",
       "live": "",
       "category": "Productivity"
