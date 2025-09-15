@@ -20,6 +20,9 @@ const buttonVariants = cva(
         ghost:
           'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
         link: 'text-primary underline-offset-4 hover:underline',
+
+        // 🔴 new disabled variant
+        disabled: 'bg-muted text-muted-foreground border border-transparent cursor-not-allowed opacity-60',
       },
       size: {
         default: 'h-9 px-4 py-2 has-[>svg]:px-3',
@@ -40,6 +43,7 @@ function Button({
   variant,
   size,
   asChild = false,
+  disabled,
   ...props
 }: React.ComponentProps<'button'> &
   VariantProps<typeof buttonVariants> & {
@@ -49,6 +53,7 @@ function Button({
 
   return (
     <Comp
+      disabled={disabled}
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}

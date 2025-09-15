@@ -27,7 +27,11 @@ export const metadata: Metadata = {
     description: "Professional portfolio showcasing 3.7+ years of front-end development experience",
     type: "website",
   },
-    generator: 'v0.app'
+  icons: {
+    icon: "/favicon.ico", // path in /public
+    shortcut: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
 }
 
 export default function RootLayout({

@@ -10,6 +10,12 @@ export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual"
+    }
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
     }
@@ -36,31 +42,26 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-sm border-b" : "bg-transparent"
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-background/95 backdrop-blur-sm border-b" : "bg-transparent"
+        }`}
     >
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="font-bold text-xl text-primary">Portfolio</div>
 
           {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={e => {
-                    e.preventDefault();
-                    scrollToSection(item.href);
-                  }}
-                  className="cursor-pointer text-foreground hover:text-primary transition-colors duration-200"
-                >
-                  {item.label}
-                </a>
-              ))}
-              <ThemeToggle />
-            </div>
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <button
+                key={item.href}
+                onClick={() => scrollToSection(item.href)}
+                className="cursor-pointer text-foreground hover:text-primary transition-colors duration-200 bg-transparent border-none p-0"
+              >
+                {item.label}
+              </button>
+            ))}
+            <ThemeToggle />
+          </div>
 
           {/* Mobile Navigation Button */}
           <div className="md:hidden flex items-center space-x-2">

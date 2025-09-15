@@ -10,9 +10,9 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks/redux"
 import { fetchProjectsRequest } from "@/lib/store/slices/projectsSlice"
 
 export function ProjectsSection() {
-  const dispatch = useAppDispatch()
-  const { data: projects, loading, error } = useAppSelector((state) => state.projects)
-  const [filter, setFilter] = useState("All")
+  const dispatch = useAppDispatch();
+  const { data: projects, loading, error } = useAppSelector((state) => state.projects);
+  const [filter, setFilter] = useState("All");
 
   useEffect(() => {
     if (projects.length === 0) {
@@ -81,7 +81,7 @@ export function ProjectsSection() {
                   alt={project.name}
                   width={500}
                   height={300}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-48 object-fill group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 right-4">
                   <Badge variant="secondary">{project.category}</Badge>
@@ -119,17 +119,31 @@ export function ProjectsSection() {
                   </div>
 
                   <div className="flex gap-2 pt-4">
-                    <Button variant="outline" size="sm" asChild>
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="mr-2 h-4 w-4" />
-                        Code
-                      </a>
+                    <Button variant={project.github ? "outline" : "disabled"} size="sm" asChild>
+                      {project.github ? (
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                          <Github className="mr-2 h-4 w-4" />
+                          Code
+                        </a>
+                      ) : (
+                        <span className="flex items-center bg-gray-400 ">
+                          <Github className="mr-2 h-4 w-4" />
+                          Code
+                        </span>
+                      )}
                     </Button>
-                    <Button size="sm" asChild>
-                      <a href={project.live} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        Live Demo
-                      </a>
+                    <Button size="sm" variant={project.live ? "default" : "disabled"} asChild>
+                      {project.live ? (
+                        <a href={project.live} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="mr-2 h-4 w-4" />
+                          Live Demo
+                        </a>
+                      ) : (
+                        <span className="flex items-center bg-gray-400">
+                          <Github className="mr-2 h-4 w-4" />
+                          Live Demo
+                        </span>
+                      )}
                     </Button>
                   </div>
                 </div>

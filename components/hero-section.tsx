@@ -20,6 +20,17 @@ export function HeroSection() {
 
   }, [dispatch, personalData])
 
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+      // Remove hash from URL after scrolling
+      if (window.location.hash === href) {
+        history.replaceState(null, "", window.location.pathname + window.location.search)
+      }
+    }
+  }
+
   if (loading) {
     return (
       <section className="min-h-screen flex items-center justify-center">
@@ -49,7 +60,7 @@ export function HeroSection() {
         ></div>
       </div>
 
-      <div className="max-w-5xl mx-auto text-center">
+      <div className="max-w-5xl mx-auto text-center flex flex-col items-center gap-6 ">
         <AnimatedSection animation="fade-in-up">
           <h1 className="text-4xl md:text-6xl font-bold text-balance mb-6">
             Hi, I'm a{" "}
@@ -78,7 +89,7 @@ export function HeroSection() {
                 asChild
                 className="hover:scale-105 transition-all duration-200 bg-transparent"
               >
-                <a href={personalData.github} target="_blank" rel="noopener noreferrer">
+                <a href={personalData?.github} target="_blank" rel="noopener noreferrer">
                   <Github className="mr-2 h-4 w-4" />
                   GitHub
                 </a>
@@ -90,19 +101,19 @@ export function HeroSection() {
                 asChild
                 className="hover:scale-105 transition-all duration-200 bg-transparent"
               >
-                <a href={personalData.linkedin} target="_blank" rel="noopener noreferrer">
+                <a href={personalData?.linkedin} target="_blank" rel="noopener noreferrer">
                   <Linkedin className="mr-2 h-4 w-4" />
                   LinkedIn
                 </a>
               </Button>
-              <DropdownMenu>
+              <DropdownMenu >
                 <DropdownMenuTrigger>
                   <Button
                     variant="outline"
                     size="lg"
                     className="hover:scale-105 transition-all duration-200 bg-transparent relative"
                   >
-                    <FileText className="mr-2 h-4 w-4"/>
+                    <FileText className="mr-2 h-4 w-4" />
                     Resume
                   </Button>
                 </DropdownMenuTrigger>
@@ -134,8 +145,8 @@ export function HeroSection() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection animation="fade-in-up" delay={600}>
-          <div className="animate-bounce" onClick={() => {}}>
+        <AnimatedSection className="mt-6" animation="fade-in-up" delay={600}>
+          <div className="animate-bounce" onClick={() => { scrollToSection("#skills") }}>
             <ArrowDown className="h-6 w-6 mx-auto text-muted-foreground" />
           </div>
         </AnimatedSection>

@@ -84,7 +84,7 @@
       "description": "International flight booking web application with advanced features",
       "technologies": ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "Storyblok CMS"],
       "features": ["Dual Seat Booking", "Pet Booking", "Travel Certificates", "Interactive Network Map"],
-      "image": "/placeholder.svg?height=300&width=500",
+      "image": "../projectImages/akasaEcom.png?height=300&width=500",
       "github": "",
       "live": "https://akasaair.com",
       "category": "E-commerce"
@@ -95,9 +95,9 @@
       "description": "Real-time flight notification system for customer updates",
       "technologies": ["Next.js", "Redux-Saga", "TypeScript", "Tailwind CSS"],
       "features": ["Real-time Updates", "Search & Filter", "CRUD Operations", "Dynamic Routing"],
-      "image": "/placeholder.svg?height=300&width=500",
+      "image": "../projectImages/fns.png?height=300&width=500",
       "github": "",
-      "live": "https://fns.akasaair.com",
+      "live": "",
       "category": "Dashboard"
     },
     {
@@ -106,20 +106,20 @@
       "description": "Interactive educational platform for online learning",
       "technologies": ["React.js", "Redux", "Material UI", "Bootstrap", "SendGrid API"],
       "features": ["Interactive Modules", "Shopping Cart", "Email Integration", "Student Dashboard"],
-      "image": "/placeholder.svg?height=300&width=500",
+      "image": "../projectImages/uCertify.png?height=300&width=500?height=300&width=500",
       "github": "",
       "live": "https://ucertify.com",
       "category": "Education"
     },
     {
       "id": 4,
-      "name": "E-commerce Dashboard",
-      "description": "Modern admin dashboard for e-commerce management",
-      "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js"],
-      "features": ["Analytics", "Product Management", "Order Tracking", "User Management"],
-      "image": "/placeholder.svg?height=300&width=500",
-      "github": "https://github.com/developer/ecommerce-dashboard",
-      "live": "https://dashboard-demo.com",
+      "name": "Fleet Tracking Dashboard",
+      "description": "Modern Fleet Tracking Dashboard for logistics management",
+      "technologies": ["Next.js", "TypeScript", "Tailwind CSS"],
+      "features": ["Analytics", "Product Management", "Tracking", "User Management"],
+      "image": "../projectImages/fleetTracking.png?height=300&width=500",
+      "github": "https://github.com/eraayush/Fleet-tracking-dashboard",
+      "live": "https://fleet-tracking-dashboard.vercel.app/",
       "category": "Dashboard"
     },
     {
@@ -129,8 +129,8 @@
       "technologies": ["React.js", "Node.js", "Socket.io", "MongoDB", "Tailwind CSS"],
       "features": ["Real-time Collaboration", "Task Assignment", "Progress Tracking", "Team Chat"],
       "image": "/placeholder.svg?height=300&width=500",
-      "github": "https://github.com/developer/task-manager",
-      "live": "https://taskmanager-demo.com",
+      "github": "https://github.com/eraayush/TMUCollegeMERNApp",
+      "live": "",
       "category": "Productivity"
     }
   ],
