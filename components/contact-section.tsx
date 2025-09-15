@@ -2,12 +2,15 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useForm, ValidationError } from '@formspree/react';
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { fetchPersonalRequest } from "@/lib/store/slices/personalSlice";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks/redux";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -15,8 +18,18 @@ export function ContactSection() {
     email: "",
     message: "",
   })
+  const [state, handleSubmit] = useForm("mwpnjlja");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const dispatch = useAppDispatch()
+  const { data: personalData } = useAppSelector((state) => state.personal)
+
+  useEffect(() => {
+    if (!personalData) {
+      dispatch(fetchPersonalRequest())
+    }
+  }, [dispatch, personalData])
+
+  const handleSubmits = (e: React.FormEvent) => {
     e.preventDefault()
     // Handle form submission here
     console.log("Form submitted:", formData)
@@ -47,15 +60,15 @@ export function ContactSection() {
             <div className="space-y-6">
               <div className="flex items-center">
                 <Mail className="h-5 w-5 text-primary mr-4" />
-                <span>developer@example.com</span>
+                <span>{personalData?.email}</span>
               </div>
               <div className="flex items-center">
                 <Phone className="h-5 w-5 text-primary mr-4" />
-                <span>+91 XXXXXXXXXX</span>
+                <span>{personalData?.phone}</span>
               </div>
               <div className="flex items-center">
                 <MapPin className="h-5 w-5 text-primary mr-4" />
-                <span>India</span>
+                <span>{personalData?.location}</span>
               </div>
             </div>
           </div>
@@ -79,9 +92,15 @@ export function ContactSection() {
                     onChange={handleChange}
                     required
                   />
+                  <ValidationError
+                    prefix="Email"
+                    field="email"
+                    errors={state.errors}
+                  />
                 </div>
                 <div>
                   <Textarea
+                    id="message"
                     name="message"
                     placeholder="Your Message"
                     rows={5}
@@ -89,12 +108,19 @@ export function ContactSection() {
                     onChange={handleChange}
                     required
                   />
+                  <ValidationError
+                    prefix="Message"
+                    field="message"
+                    errors={state.errors}
+                  />
                 </div>
                 <Button type="submit" className="w-full">
                   <Send className="mr-2 h-4 w-4" />
                   Send Message
                 </Button>
               </form>
+
+              {state.succeeded && <p className="mt-4 text-green-500">Thank you for your message!</p>}
             </CardContent>
           </Card>
         </div>

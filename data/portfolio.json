@@ -4,11 +4,11 @@
     "title": "Front-End Developer",
     "experience": "3.7+ years",
     "summary": "Front-End Developer with 3.7+ years of experience in the IT industry, focused on creating scalable and high-performance web applications. Skilled in modern front-end technologies, including React.js, Next.js, TypeScript, JavaScript, Tailwind CSS, HTML5, CSS3, jQuery, and CMS platforms such as Storyblok. I am eager to join a team where I can apply my technical knowledge and attention to detail to build accessible, maintainable, and user-focused web solutions.",
-    "email": "developer@example.com",
-    "phone": "+91 XXXXXXXXXX",
+    "email": "eraayushjain20@gmail.com",
+    "phone": "+91 8817374110",
     "location": "India",
-    "linkedin": "https://linkedin.com/in/developer",
-    "github": "https://github.com/developer"
+    "linkedin": "https://www.linkedin.com/in/eraayushjain/",
+    "github": "https://github.com/eraayush"
   },
   "skills": {
     "languages": ["JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3"],
@@ -35,9 +35,9 @@
             "Contributed to a 30% increase in global booking traffic post-launch",
             "Built the Dual Seat Booking (Extra Seat) feature, contributing to revenue increase",
             "Delivered Travel Certificate functionality with Razorpay integration",
-            "Introduced first-of-its-kind Pet Booking (SSRs) feature",
             "Led Storyblok CMS integration for centralized content management",
             "Created Interactive Network Map for direct flight booking",
+            "Introduce data privacy enhancements for group and series bookings, including validation checks during PNR retrieval in Manage Booking and Check-in flows.",
             "Improved Google Lighthouse score from 70 to 90%",
             "Replaced Material UI with optimized custom Tailwind components"
           ]
@@ -85,7 +85,7 @@
       "technologies": ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "Storyblok CMS"],
       "features": ["Dual Seat Booking", "Pet Booking", "Travel Certificates", "Interactive Network Map"],
       "image": "/placeholder.svg?height=300&width=500",
-      "github": "https://github.com/developer/flight-booking",
+      "github": "",
       "live": "https://akasaair.com",
       "category": "E-commerce"
     },
@@ -96,7 +96,7 @@
       "technologies": ["Next.js", "Redux-Saga", "TypeScript", "Tailwind CSS"],
       "features": ["Real-time Updates", "Search & Filter", "CRUD Operations", "Dynamic Routing"],
       "image": "/placeholder.svg?height=300&width=500",
-      "github": "https://github.com/developer/fns-system",
+      "github": "",
       "live": "https://fns.akasaair.com",
       "category": "Dashboard"
     },
@@ -107,7 +107,7 @@
       "technologies": ["React.js", "Redux", "Material UI", "Bootstrap", "SendGrid API"],
       "features": ["Interactive Modules", "Shopping Cart", "Email Integration", "Student Dashboard"],
       "image": "/placeholder.svg?height=300&width=500",
-      "github": "https://github.com/developer/lms-platform",
+      "github": "",
       "live": "https://ucertify.com",
       "category": "Education"
     },

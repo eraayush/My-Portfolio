@@ -3,7 +3,7 @@ import type { PersonalData, PersonalState } from "@/lib/types"
 
 const initialState: PersonalState = {
   data: null,
-  loading: false,
+  loading: true,
   error: null,
 }
 
