@@ -13,6 +13,8 @@ import { fetchPersonalRequest } from "@/lib/store/slices/personalSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks/redux";
 
 export function ContactSection() {
+  const { data: personalData } = useAppSelector((state) => state.personal)
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,7 +23,6 @@ export function ContactSection() {
   const [state, handleSubmit] = useForm("mwpnjlja");
 
   const dispatch = useAppDispatch()
-  const { data: personalData } = useAppSelector((state) => state.personal)
 
   useEffect(() => {
     if (!personalData) {
