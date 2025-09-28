@@ -13,14 +13,14 @@ import { fetchPersonalRequest } from "@/lib/store/slices/personalSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks/redux";
 
 export function ContactSection() {
-  const { data: personalData } = useAppSelector((state) => state.personal)
+  const { data: personalData } = useAppSelector((state) => state.personal);
+  const [state, handleSubmit] = useForm("mwpnjlja");
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   })
-  const [state, handleSubmit] = useForm("mwpnjlja");
 
   const dispatch = useAppDispatch()
 
